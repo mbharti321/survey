@@ -11,7 +11,7 @@ mongoose.connect(dbURL + "/surveyDB");
 const questionSchema = mongoose.Schema({
     question: "",
     answer: "option a",
-    answer: {
+    options: {
         a: "option a",
         b: "option b",
         c: "option c",
@@ -55,6 +55,11 @@ app.get("/", (req, res) => {
 app.get("/admin", (req, res) => {
     res.render("admin/admin")
 });
+
+app.get("/admin/survey", (req, res) => {
+    res.render("admin/admin");
+});
+
 
 app.listen("3000", () => {
     console.log("Server started!! at http://localhost:3000/");
